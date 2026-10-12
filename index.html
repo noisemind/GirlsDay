@@ -121,6 +121,92 @@
       opacity: 0.9;
     }
     
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .tag-girl {
+      background: #fce4ec;
+      color: #c2185b;
+    }
+    
+    .tag-boy {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+    
+    /* کارت ویژه استودیو */
+    .studio-card {
+      grid-column: 1 / -1;
+      background: #101010;
+      color: #cfd1d0;
+      border: 1.5px solid rgba(244,244,241,.18);
+      border-radius: 20px;
+      padding: 28px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      margin-top: 10px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    
+    .studio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    }
+    
+    .studio-logo {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: 0.25em;
+      color: #f4f4f1;
+      padding-left: 0.25em;
+    }
+    
+    .studio-text {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .studio-text h3 {
+      margin: 0 0 6px;
+      color: #f4f4f1;
+      font-size: 1.15rem;
+    }
+    
+    .studio-text p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: #9a9d9c;
+      line-height: 1.7;
+    }
+    
+    .studio-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 11px 22px;
+      border: 1.5px solid rgba(244,244,241,.3);
+      border-radius: 999px;
+      color: #f4f4f1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    
+    .studio-btn:hover {
+      background: #f4f4f1;
+      color: #101010;
+    }
+    
     .footer {
       text-align: center;
       padding: 30px 20px 50px;
@@ -137,6 +223,7 @@
     @media (max-width: 500px) {
       .header h1 { font-size: 1.7rem; }
       .card-emoji { font-size: 2.3rem; }
+      .studio-card { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -150,13 +237,14 @@
   <div class="container">
     <p class="intro">
       اینا چند تا سایت کوچیک و شوخی هستن که برای حال‌وهوای روز دختر درست شدن.<br>
-      روی هر کدوم کلیک کن و لذت ببر 😄
+      بعضی‌هاشون مخصوص دختراست، بعضی‌ها هم برای پسرایی که می‌خوان باهاشون حال کنن 😄
     </p>
 
     <div class="grid">
       <!-- 1 -->
       <div class="card">
         <div class="card-emoji">🎁</div>
+        <span class="tag tag-girl">مخصوص دخترا</span>
         <div class="card-title">فروشگاه محصولات دیجیتال</div>
         <div class="card-desc">
           فروشگاه جعلی با محصولات کاملاً بی‌فایده و ضروری مثل «PDF بغل مجازی» و «پلنر واقعی‌بینانه».
@@ -167,6 +255,7 @@
       <!-- 2 -->
       <div class="card">
         <div class="card-emoji">📊</div>
+        <span class="tag tag-girl">مخصوص دخترا</span>
         <div class="card-title">تست چقدر دختری</div>
         <div class="card-desc">
           آزمون ۸ سوالی علمی! درصد دقیق دختر بودنت رو حساب می‌کنه و عنوان مناسب می‌ده.
@@ -177,6 +266,7 @@
       <!-- 3 -->
       <div class="card">
         <div class="card-emoji">💌</div>
+        <span class="tag tag-girl">مخصوص دخترا</span>
         <div class="card-title">ژنراتور تبریک</div>
         <div class="card-desc">
           هر بار یه تبریک کاملاً واقعی، صادق و کمی بی‌رحم برای روز دختر تولید می‌کنه.
@@ -187,9 +277,10 @@
       <!-- 4 -->
       <div class="card">
         <div class="card-emoji">🛍️</div>
+        <span class="tag tag-boy">مخصوص پسرا</span>
         <div class="card-title">محاسبه‌گر هدیه ایده‌آل</div>
         <div class="card-desc">
-          سن، بودجه و علاقه‌ت رو می‌گیره و با الگوریتم پیشرفته، بهترین (مسخره‌ترین) هدیه رو پیشنهاد می‌ده.
+          مخصوص کسایی که می‌خوان به یه دختر هدیه بدن. سن، بودجه و علاقه رو می‌گیره و بهترین (مسخره‌ترین) پیشنهاد رو می‌ده.
         </div>
         <a class="card-link" href="mohasebegar-hediye.html">محاسبه هدیه</a>
       </div>
@@ -197,9 +288,10 @@
       <!-- 5 -->
       <div class="card">
         <div class="card-emoji">📱</div>
+        <span class="tag tag-boy">مخصوص پسرا</span>
         <div class="card-title">شبیه‌ساز جواب دیر دادن</div>
         <div class="card-desc">
-          پیامت رو بنویس و ببین طرف مقابل با چه تأخیر و بهانه‌ای جواب می‌ده.
+          مخصوص پسرهایی که منتظر جوابن! پیامت رو بنویس و ببین طرف با چه تأخیر و بهانه‌ای جواب می‌ده.
         </div>
         <a class="card-link" href="simulator-javab.html">شروع شبیه‌سازی</a>
       </div>
@@ -207,6 +299,7 @@
       <!-- 6 -->
       <div class="card">
         <div class="card-emoji">⏰</div>
+        <span class="tag tag-girl">مخصوص دخترا</span>
         <div class="card-title">ماشین حساب آماده‌سازی</div>
         <div class="card-desc">
           تیک بزن چیکارا می‌خوای بکنی، تا بگه واقعاً چقدر طول می‌کشه آماده بشی.
@@ -217,18 +310,29 @@
       <!-- 7 -->
       <div class="card">
         <div class="card-emoji">📜</div>
+        <span class="tag tag-girl">مخصوص دخترا</span>
         <div class="card-title">گواهی‌نامه رسمی دختر بودن</div>
         <div class="card-desc">
           اسمت رو وارد کن و یه گواهی رسمی، قابل چاپ و کاملاً معتبر دریافت کن.
         </div>
         <a class="card-link" href="govahi-dokhtar.html">صدور گواهی</a>
       </div>
+
+      <!-- Studio highlight -->
+      <div class="studio-card">
+        <div class="studio-logo">NOISEMIND</div>
+        <div class="studio-text">
+          <h3>از هیاهو، وضوح می‌سازیم</h3>
+          <p>این مجموعه شوخی توسط استودیوی NOISEMIND ساخته شده. اگه دوست داری ببینی پشت صحنه چی می‌گذره، سری به صفحه درباره ما بزن.</p>
+        </div>
+        <a class="studio-btn" href="about.html">درباره استودیو ←</a>
+      </div>
     </div>
   </div>
 
   <div class="footer">
-    ساخته شده با ❤️ و کمی شیطنت<br>
-    <a href="https://noisemind.github.io/GirlsDay/">noisemind.github.io/GirlsDay</a>
+    ساخته شده با ❤️ و کمی شیطنت توسط <a href="about.html">NOISEMIND</a><br>
+    <span style="opacity:0.7; font-size:0.85rem;">استودیوی توسعه وب‌اپلیکیشن‌های PWA</span>
   </div>
 </body>
 </html>
