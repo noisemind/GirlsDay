@@ -263,7 +263,7 @@
 </main>
 
 <footer class="foot">
-  <p>این اپ را <b dir="ltr">NOISEMIND</b> ساخته است.</p>
+  <p>این وب اپ را <b dir="ltr">NOISEMIND</b> ساخته است.</p>
   <p class="meta" id="meta" hidden></p>
 </footer>
 
@@ -272,16 +272,16 @@
    فقط همین بخش را برای هر پروژه عوض کن.
    مقدار خالی = آن بخش نمایش داده نمی‌شود. */
 const NOISEMIND = {
-  project: "",   // نام پروژه، مثلاً «اپ رزرو نوبت»
-  version: "",   // مثلاً "1.0.0"
+  project: "روز دختر",
+  version: "1.0.0",
   backHref: "",  // مسیر بازگشت؛ اگر خالی باشد از تاریخچه‌ی مرورگر استفاده می‌شود
   links: {       // لینک کامل (https://...)؛ برای ایمیل فقط آدرس ایمیل
-    website: "",
-    email: "",
-    telegram: "",
-    instagram: "",
-    github: "",
-    linkedin: ""
+    website: "noisemind.ir",
+    email: "noisemindstudio@gmail.com",
+    telegram: "https://t.me/+h-DO7PZi9ME4YzY0",
+    instagram: "https://www.instagram.com/noisemind_studio?xtok=MWd3NnN4bTkwNzc5cQ%3D%3D&utm_source=qr",
+    github: "https://github.com/noisemind",
+    threads: "https://www.threads.com/@noisemind_studio?igshid=NTc4MTIwNjQ2YQ=="
   }
 };
 
@@ -297,7 +297,7 @@ const NOISEMIND = {
     back.addEventListener("click", e => { e.preventDefault(); history.back(); });
   }
 
-  const labels = {website:"وب‌سایت",email:"ایمیل",telegram:"تلگرام",instagram:"اینستاگرام",github:"گیت‌هاب",linkedin:"لینکدین"};
+  const labels = {website:"وب‌سایت",email:"ایمیل",telegram:"تلگرام",instagram:"اینستاگرام",github:"گیت‌هاب",threads:"تردز"};
   const list = document.getElementById("links");
   Object.keys(labels).forEach(k => {
     let v = (NOISEMIND.links[k] || "").trim();
