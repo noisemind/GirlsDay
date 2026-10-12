@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>گواهی‌نامه رسمی دختر بودن</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background: linear-gradient(160deg, #fce4ec, #f3e5f5);
+      min-height: 100vh;
+      color: #4a148c;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .form-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 10px 35px rgba(171,71,188,0.15);
+      margin-bottom: 30px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: #880e4f;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+    input {
+      width: 100%;
+      padding: 11px 14px;
+      border: 2px solid #f8bbd0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    input:focus { outline: none; border-color: #ec407a; }
+    .btn {
+      width: 100%;
+      padding: 13px;
+      background: linear-gradient(90deg, #ec407a, #ab47bc);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .certificate {
+      display: none;
+      background: linear-gradient(135deg, #fff9fb, #fce4ec);
+      border: 8px double #ec407a;
+      border-radius: 16px;
+      padding: 40px 30px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 15px 50px rgba(236,64,122,0.2);
+    }
+    .cert-header {
+      font-size: 1.1rem;
+      color: #ad1457;
+      margin-bottom: 5px;
+      letter-spacing: 2px;
+    }
+    .cert-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #880e4f;
+      margin: 10px 0 25px;
+    }
+    .cert-body {
+      font-size: 1.1rem;
+      line-height: 2;
+      color: #4a148c;
+      margin-bottom: 25px;
+    }
+    .cert-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #c2185b;
+      border-bottom: 2px solid #f48fb1;
+      display: inline-block;
+      padding: 0 15px 5px;
+      margin: 10px 0;
+    }
+    .cert-footer {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 0.85rem;
+      color: #8e24aa;
+    }
+    .seal {
+      font-size: 3rem;
+      opacity: 0.8;
+    }
+    .actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .actions button {
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .print-btn {
+      background: #6a1b9a;
+      color: white;
+    }
+    .new-btn {
+      background: #f8bbd0;
+      color: #6a1b9a;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-card" id="form">
+    <h1>📜 صدور گواهی‌نامه رسمی دختر بودن</h1>
+    
+    <label>نام و نام خانوادگی:</label>
+    <input type="text" id="fullname" placeholder="مثال: سارا محمدی">
+
+    <label>تاریخ تولد (اختیاری):</label>
+    <input type="text" id="birth" placeholder="مثال: ۱۳۷۸/۰۵/۱۲">
+
+    <label>کد ملی (خیلی اختیاری و الکی):</label>
+    <input type="text" id="code" placeholder="برای رسمی‌تر شدن">
+
+    <button class="btn" onclick="issue()">صدور گواهی‌نامه</button>
+  </div>
+
+  <div class="certificate" id="cert">
+    <div class="cert-header">جمهوری اسلامی شوخی‌ستان</div>
+    <div class="cert-title">گواهی‌نامه رسمی دختر بودن</div>
+    
+    <div class="cert-body">
+      بدین‌وسیله گواهی می‌شود که خانم
+      <div class="cert-name" id="cert-name">نام</div>
+      به استناد ماده ۱۲ قانون کلیشه‌های جنسیتی و تبصره ۳ آیین‌نامه حق دیر جواب دادن،
+      رسماً و شرعاً به عنوان <strong>«دختر»</strong> شناخته می‌شود.
+      <br><br>
+      دارنده این گواهی حق دارد:
+      <br>
+      • دیر جواب پیام بدهد<br>
+      • بگوید «من چیزی نمی‌خوام» و ناراحت شود<br>
+      • حداقل ۴۵ دقیقه طول بکشد تا آماده شود<br>
+      • پست مبهم بگذارد و انتظار درک داشته باشد
+    </div>
+
+    <div class="cert-footer">
+      <div>
+        <div>تاریخ صدور: <span id="date"></span></div>
+        <div style="margin-top:8px;">شماره گواهی: DG-<span id="num"></span></div>
+      </div>
+      <div class="seal">🏅</div>
+    </div>
+  </div>
+
+  <div class="actions" id="actions" style="display:none;">
+    <button class="print-btn" onclick="window.print()">چاپ / ذخیره به عنوان تصویر</button>
+    <button class="new-btn" onclick="reset()">صدور گواهی جدید</button>
+  </div>
+
+  <script>
+    function issue() {
+      const name = document.getElementById('fullname').value.trim() || 'خانم محترم';
+      document.getElementById('cert-name').textContent = name;
+      
+      const today = new Date();
+      const dateStr = today.toLocaleDateString('fa-IR');
+      document.getElementById('date').textContent = dateStr;
+      document.getElementById('num').textContent = Math.floor(10000 + Math.random() * 90000);
+
+      document.getElementById('form').style.display = 'none';
+      document.getElementById('cert').style.display = 'block';
+      document.getElementById('actions').style.display = 'flex';
+    }
+
+    function reset() {
+      document.getElementById('form').style.display = 'block';
+      document.getElementById('cert').style.display = 'none';
+      document.getElementById('actions').style.display = 'none';
+      document.getElementById('fullname').value = '';
+      document.getElementById('birth').value = '';
+      document.getElementById('code').value = '';
+    }
+  </script>
+</body>
+</html>

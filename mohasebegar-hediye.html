@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محاسبه‌گر هدیه ایده‌آل روز دختر</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background: linear-gradient(160deg, #fce4ec, #f3e5f5);
+      min-height: 100vh;
+      color: #4a148c;
+      padding: 20px;
+    }
+    .container {
+      max-width: 560px;
+      margin: 30px auto;
+    }
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 12px 40px rgba(171, 71, 188, 0.15);
+      margin-bottom: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.6rem;
+      color: #880e4f;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #8e24aa;
+      font-size: 0.9rem;
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #6a1b9a;
+    }
+    select, input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #f8bbd0;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      margin-bottom: 18px;
+      background: #fff;
+      color: #4a148c;
+    }
+    select:focus, input:focus {
+      outline: none;
+      border-color: #ec407a;
+    }
+    .btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(90deg, #ec407a, #ab47bc);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn:hover { opacity: 0.92; }
+    .result {
+      display: none;
+      text-align: center;
+    }
+    .result-emoji {
+      font-size: 4rem;
+      margin-bottom: 15px;
+    }
+    .result-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #c2185b;
+      margin-bottom: 12px;
+    }
+    .result-desc {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #5d4037;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="form-card">
+      <h1>🎁 محاسبه‌گر هدیه ایده‌آل</h1>
+      <p class="subtitle">با الگوریتم پیشرفته و کاملاً علمی!</p>
+
+      <label>سن تقریبی طرف مقابل؟</label>
+      <select id="age">
+        <option value="kid">زیر ۱۵ سال</option>
+        <option value="teen">۱۵ تا ۲۰ سال</option>
+        <option value="young" selected>۲۰ تا ۳۰ سال</option>
+        <option value="adult">بالای ۳۰ سال</option>
+      </select>
+
+      <label>بودجه‌ت چقدره؟</label>
+      <select id="budget">
+        <option value="low">زیر ۵۰۰ هزار</option>
+        <option value="mid" selected>۵۰۰ هزار تا ۲ میلیون</option>
+        <option value="high">بالای ۲ میلیون</option>
+        <option value="unlimited">هر چقدر لازم باشه</option>
+      </select>
+
+      <label>بیشتر به چی علاقه داره؟</label>
+      <select id="interest">
+        <option value="beauty">آرایش و زیبایی</option>
+        <option value="tech">تکنولوژی و گجت</option>
+        <option value="book">کتاب و مطالعه</option>
+        <option value="fun">سرگرمی و خوش‌گذرونی</option>
+        <option value="nothing">هیچی، سخت‌گیره</option>
+      </select>
+
+      <label>رابطه‌ت باهاش چیه؟</label>
+      <select id="relation">
+        <option value="sister">خواهر / دخترعمه</option>
+        <option value="friend">دوست</option>
+        <option value="girlfriend">دوست‌دختر / همسر</option>
+        <option value="daughter">دخترم</option>
+        <option value="unknown">نمی‌دونم، تصادفی دیدم</option>
+      </select>
+
+      <button class="btn" onclick="calculate()">محاسبه هدیه ایده‌آل</button>
+    </div>
+
+    <div class="card result" id="result-card">
+      <div class="result-emoji" id="emoji">🎁</div>
+      <div class="result-title" id="title">عنوان</div>
+      <div class="result-desc" id="desc">توضیح</div>
+      <button class="btn" style="margin-top:25px; background: linear-gradient(90deg, #7b1fa2, #512da8);" onclick="reset()">دوباره حساب کن</button>
+    </div>
+  </div>
+
+  <script>
+    const gifts = {
+      low: [
+        { emoji: "📄", title: "فایل PDF بغل مجازی", desc: "ارزون، دیجیتال و همیشه در دسترس. بهترین انتخاب برای بودجه‌های محدود!" },
+        { emoji: "🌸", title: "وال‌پیپر گل رز با متن انگیزشی", desc: "روزش رو با یه وال‌پیپر قشنگ مبارک کن. هزینه تقریباً صفر!" },
+        { emoji: "📜", title: "گواهی رسمی دختر بودن", desc: "یه مدرک شیک و قابل دانلود. هم خنده‌داره هم به‌دردبخور." }
+      ],
+      mid: [
+        { emoji: "🎧", title: "هدفون بی‌سیم طرح گربه‌ای", desc: "هم کاربردی هم فانتزی. تقریباً همه دخترها از این مدل‌ها خوششون میاد." },
+        { emoji: "📓", title: "پلنر دیجیتال دخترانه", desc: "برای برنامه‌ریزی نکردن و فقط قشنگ به نظر رسیدن." },
+        { emoji: "✨", title: "پک استیکر اینستاگرام روز دختر", desc: "تا آخر سال می‌تونه باهاش استوری بذاره و حس خاص بودن بده." }
+      ],
+      high: [
+        { emoji: "⌚", title: "ساعت هوشمند صورتی", desc: "هم شیکه هم کاربردیه. دیگه بهونه نداره که بگه چیزی نمی‌خواد." },
+        { emoji: "📷", title: "دوربین چاپ فوری", desc: "برای ثبت لحظه‌های روز دختر. بعداً پشیمون نمی‌شی." },
+        { emoji: "🎁", title: "پک کامل مراقبت پوست + هدیه غافلگیرکننده", desc: "وقتی بودجه بالاست، چرا ساده بری؟" }
+      ],
+      unlimited: [
+        { emoji: "👑", title: "یه روز کامل اسپای + خرید نامحدود", desc: "بودجه‌ت نامحدوده؟ پس برو سراغ تجربه‌ها. این یکی یادش می‌مونه." },
+        { emoji: "💎", title: "یه تیکه طلای کوچک + کارت هدیه بزرگ", desc: "ترکیب احساس و آزادی انتخاب. دیگه حرفی برای گفتن نمی‌مونه." },
+        { emoji: "🚀", title: "سفر یک‌روزه غافلگیرکننده", desc: "وقتی همه چی ممکنه، چرا عادی باشی؟" }
+      ]
+    };
+
+    const funnyExtras = [
+      "البته احتمال داره بگه «من چیزی نمی‌خواستم» و بعد سه روز بعد بپرسه چرا چیزی نخریدی.",
+      "اگه گفت «لازم نبود»، بدون که لازم بود.",
+      " complement: این هدیه طبق الگوریتم پیشرفته ما انتخاب شده و مسئولیت هر اتفاقی با شماست.",
+      "نکته: اگه ناراحت شد، بگو سایت گفته این بهترینه."
+    ];
+
+    function calculate() {
+      const budget = document.getElementById('budget').value;
+      const list = gifts[budget];
+      const chosen = list[Math.floor(Math.random() * list.length)];
+      const extra = funnyExtras[Math.floor(Math.random() * funnyExtras.length)];
+
+      document.getElementById('emoji').textContent = chosen.emoji;
+      document.getElementById('title').textContent = chosen.title;
+      document.getElementById('desc').textContent = chosen.desc + " " + extra;
+
+      document.getElementById('form-card').style.display = 'none';
+      document.getElementById('result-card').style.display = 'block';
+    }
+
+    function reset() {
+      document.getElementById('form-card').style.display = 'block';
+      document.getElementById('result-card').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

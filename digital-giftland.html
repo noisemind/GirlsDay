@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دیجیتال‌گیفت‌لند | فروشگاه رسمی محصولات دیجیتال روز دختر</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #fff0f5 0%, #fce4ec 50%, #f3e5f5 100%);
+      min-height: 100vh;
+      color: #4a148c;
+      line-height: 1.7;
+    }
+    
+    .header {
+      background: linear-gradient(90deg, #ec407a, #ab47bc);
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(236, 64, 122, 0.3);
+    }
+    
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: #fff;
+      color: #ec407a;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: #880e4f;
+    }
+    
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    
+    .product-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(171, 71, 188, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 2px solid transparent;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(171, 71, 188, 0.25);
+      border-color: #f48fb1;
+    }
+    
+    .product-img {
+      height: 160px;
+      background: linear-gradient(135deg, #f8bbd0, #e1bee7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    
+    .product-body {
+      padding: 20px;
+    }
+    
+    .product-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #6a1b9a;
+      margin-bottom: 10px;
+    }
+    
+    .product-desc {
+      font-size: 0.95rem;
+      color: #6d4c41;
+      margin-bottom: 15px;
+      min-height: 70px;
+    }
+    
+    .price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #c2185b;
+      margin-bottom: 15px;
+    }
+    
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(90deg, #ec407a, #ab47bc);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    
+    .btn:hover {
+      opacity: 0.9;
+    }
+    
+    .btn:active {
+      transform: scale(0.98);
+    }
+    
+    .vip {
+      position: relative;
+    }
+    
+    .vip::before {
+      content: "🔥 ویژه";
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #ff1744;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      z-index: 2;
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #8e24aa;
+      font-size: 0.95rem;
+    }
+    
+    .footer .joke {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+    
+    .alert {
+      background: #fff3e0;
+      border: 2px dashed #ff9800;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #e65100;
+      font-weight: 600;
+    }
+    
+    @media (max-width: 600px) {
+      .header h1 { font-size: 1.6rem; }
+      .product-img { height: 130px; font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎁 دیجیتال‌گیفت‌لند</h1>
+    <p>فروشگاه رسمی و کاملاً جدی محصولات دیجیتال روز دختر</p>
+    <div class="badge">نسخه ویژه ۱۴۰۵ • تضمین ۱۰۰٪ خنده</div>
+  </div>
+
+  <div class="container">
+    <div class="alert">
+      ⚠️ توجه: تمام محصولات این فروشگاه کاملاً دیجیتال، کاملاً بی‌فایده و کاملاً ضروری هستند!
+    </div>
+
+    <h2 class="section-title">✨ محصولات منتخب روز دختر</h2>
+
+    <div class="products">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-img">🌸</div>
+        <div class="product-body">
+          <div class="product-title">وال‌پیپر ویژه روز دختر</div>
+          <div class="product-desc">
+            تصویر یک گل رز فوق‌العاده زیبا با نوشته:<br>
+            «روزت مبارک... حالا لطفاً گوشی رو بذار زمین و درس بخون»
+          </div>
+          <div class="price">۴۹,۰۰۰ تومان</div>
+          <button class="btn" onclick="alert('✅ وال‌پیپر با موفقیت به سبد اضافه شد!\n\n(البته سبد مجازی است و هیچی نمی‌رسه 😅)')">افزودن به سبد</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-img">📓</div>
+        <div class="product-body">
+          <div class="product-title">پلنر دیجیتال دخترانه (نسخه واقعی‌بینانه)</div>
+          <div class="product-desc">
+            فقط ۳ صفحه داره:<br>
+            ۱. امروز هیچی نکن<br>
+            ۲. فردا هم هیچی نکن<br>
+            ۳. پس‌فردا برو سراغ همون کاری که ازش فرار می‌کردی
+          </div>
+          <div class="price">۸۹,۰۰۰ تومان</div>
+          <button class="btn" onclick="alert('✅ پلنر اضافه شد!\n\nحالا می‌تونی با خیال راحت برنامه‌ریزی نکنی 😌')">افزودن به سبد</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-img">✨</div>
+        <div class="product-body">
+          <div class="product-title">استیکر پک اینستاگرام</div>
+          <div class="product-desc">
+            • «من دخترم، پس حق دارم دیر جواب بدم»<br>
+            • «روز دختره، ازم توقع کار نداشته باش»<br>
+            • «هدیه ندی، ناراحت نمی‌شم... دروغ گفتم»
+          </div>
+          <div class="price">۳۹,۰۰۰ تومان</div>
+          <button class="btn" onclick="alert('✅ استیکرها آماده‌ان!\n\nحالا برو استوری بذار و همه رو عصبانی کن 😂')">افزودن به سبد</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-img">🎧</div>
+        <div class="product-body">
+          <div class="product-title">ایبوک صوتی: هنر فرار از هدیه</div>
+          <div class="product-desc">
+            «چگونه در روز دختر از هدیه گرفتن فرار کنیم و باز هم محبوب بمونیم»<br>
+            شامل تکنیک‌های پیشرفته مثل «من چیزی نمی‌خوام» گفتن.
+          </div>
+          <div class="price">۱۲۹,۰۰۰ تومان</div>
+          <button class="btn" onclick="alert('✅ ایبوک به کتابخانه‌ات اضافه شد!\n\n(البته کتابخانه مجازی است 📚)')">افزودن به سبد</button>
+        </div>
+      </div>
+
+      <!-- Product 5 - VIP -->
+      <div class="product-card vip">
+        <div class="product-img">🤗</div>
+        <div class="product-body">
+          <div class="product-title">فایل PDF بغل مجازی</div>
+          <div class="product-desc">
+            یک فایل PDF با کیفیت فوق‌العاده از یک بغل گرم و صمیمی.<br>
+            قابل دانلود نامحدود. مناسب برای روزهایی که کسی نیست بغلت کنه.
+          </div>
+          <div class="price">۱۹۹,۰۰۰ تومان</div>
+          <button class="btn" onclick="alert('✅ بغل مجازی خریداری شد!\n\nحالا فایل رو دانلود کن و... خب، خودت می‌دونی چیکار کنی 🫂')">خرید ویژه</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card">
+        <div class="product-img">📜</div>
+        <div class="product-body">
+          <div class="product-title">گواهی رسمی «دختر بودن»</div>
+          <div class="product-desc">
+            مدرک PDF با مهر و امضای دیجیتال که ثابت می‌کنه شما رسماً دختر هستید.<br>
+            قابل ارائه به والدین، دوستان و سیستم آموزشی.
+          </div>
+          <div class="price">۶۹,۰۰۰ تومان</div>
+          <button class="btn" onclick="alert('✅ گواهی صادر شد!\n\nحالا می‌تونی با افتخار به همه نشون بدی 🎖️')">دریافت گواهی</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© ۱۴۰۵ دیجیتال‌گیفت‌لند — تمام حقوق محفوظ است (ولی هیچی جدی نیست)</p>
+    <p class="joke">این یک سایت شوخی است. لطفاً پول واقعی نفرستید. ما هم پول واقعی نمی‌گیریم 😄</p>
+  </div>
+</body>
+</html>

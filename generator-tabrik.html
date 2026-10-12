@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ژنراتور تبریک روز دختر | نسخه واقعی و بی‌رحم</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5, #e8eaf6);
+      min-height: 100vh;
+      color: #4a148c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 15px 50px rgba(171, 71, 188, 0.2);
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+      color: #880e4f;
+    }
+    .subtitle {
+      color: #8e24aa;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+    }
+    .result-box {
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      border: 2px dashed #ec407a;
+      border-radius: 18px;
+      padding: 30px 20px;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.8;
+      color: #6a1b9a;
+    }
+    .btn {
+      background: linear-gradient(90deg, #ec407a, #ab47bc);
+      color: white;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; transform: scale(1.03); }
+    .btn:active { transform: scale(0.98); }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: #9c27b0;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎀 ژنراتور تبریک روز دختر</h1>
+    <p class="subtitle">نسخه واقعی • بدون سانسور • کاملاً صادق</p>
+    
+    <div class="result-box" id="result">
+      روی دکمه بزن تا یه تبریک واقعی برات ساخته بشه...
+    </div>
+    
+    <button class="btn" onclick="generate()">تولید تبریک جدید</button>
+  </div>
+  
+  <p class="footer">این ژنراتور هیچ احساسی نداره و فقط حقیقت رو می‌گه 😈</p>
+
+  <script>
+    const messages = [
+      "روز دخترت مبارک، امیدوارم امروز فقط ۸ بار غر نزنی.",
+      "تبریک می‌گم! رسمی شدی دختر. از این به بعد حق داری دیر جواب بدی.",
+      "روزت مبارک. یادت نره امروز حداقل ۳ تا استوری با فیلتر صورتی بذاری.",
+      "روز دختر مبارک. لطفاً امروز کمتر بگی «حالم بده».",
+      "تبریک! امروز می‌تونی بدون عذاب وجدان ۲ ساعت طول بکشی تا آماده بشی.",
+      "روزت مبارک. امیدوارم کسی بهت نگه «چقدر عوض شدی».",
+      "روز دختر مبارک. امروز حقت هست که کیف‌ت رو با تمام لوازم اضطراری پر کنی.",
+      "تبریک می‌گم. امروز می‌تونی به همه بگی «چون دخترم» و انتظار داشته باشی بفهمن.",
+      "روزت مبارک. لطفاً حداقل امروز آینه رو کمتر نگاه کن (غیرممکنه می‌دونم).",
+      "روز دختر مبارک. امروز روز رسمیه که بگی «من چیزی نمی‌خوام» و بعد ناراحت شی که چیزی نخریدن.",
+      "تبریک! امروز می‌تونی پست مبهم بذاری و انتظار داشته باشی همه بفهمن منظور‌ت چیه.",
+      "روزت مبارک. امیدوارم کسی ازت نخواد منطقی باشی.",
+      "روز دختر مبارک. امروز حقت هست که بگی «حالم خوبه» وقتی حالم خوب نیست.",
+      "تبریک می‌گم. امروز می‌تونی کفش‌هات رو بشمری و بگی کم داری.",
+      "روزت مبارک. لطفاً امروز حداقل یک بار بگو «من که چیزی نمی‌گم».",
+      "روز دختر مبارک. امروز روز رسمیه که بگی «تو نمی‌فهمی» و انتظار داشته باشی طرف ساکت بشه."
+    ];
+
+    function generate() {
+      const random = messages[Math.floor(Math.random() * messages.length)];
+      const box = document.getElementById('result');
+      box.style.opacity = 0;
+      setTimeout(() => {
+        box.textContent = random;
+        box.style.opacity = 1;
+      }, 200);
+    }
+
+    // First random on load
+    generate();
+  </script>
+</body>
+</html>

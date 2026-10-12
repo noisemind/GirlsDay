@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ماشین حساب «چقدر طول می‌کشه آماده بشی؟»</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background: linear-gradient(160deg, #fce4ec, #e1bee7);
+      min-height: 100vh;
+      color: #4a148c;
+      padding: 20px;
+    }
+    .container {
+      max-width: 520px;
+      margin: 20px auto;
+    }
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 40px rgba(171, 71, 188, 0.18);
+      margin-bottom: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.45rem;
+      color: #880e4f;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #8e24aa;
+      margin-bottom: 25px;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #f8bbd0;
+    }
+    .item:last-of-type { border-bottom: none; }
+    .item label {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .item input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      accent-color: #ec407a;
+      cursor: pointer;
+    }
+    .btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(90deg, #ec407a, #ab47bc);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .btn:hover { opacity: 0.92; }
+    .result {
+      display: none;
+      text-align: center;
+    }
+    .time {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #c2185b;
+      margin: 15px 0;
+    }
+    .comment {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #5d4037;
+      margin-bottom: 20px;
+    }
+    .extra {
+      background: #fce4ec;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 0.9rem;
+      color: #ad1457;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" id="form">
+      <h1>⏰ ماشین حساب آماده‌سازی</h1>
+      <p class="subtitle">واقع‌بینانه‌ترین تخمین زمان ممکن</p>
+
+      <div class="item">
+        <label>دوش گرفتن</label>
+        <input type="checkbox" id="shower" checked>
+      </div>
+      <div class="item">
+        <label>میکاپ کامل</label>
+        <input type="checkbox" id="makeup">
+      </div>
+      <div class="item">
+        <label>درست کردن مو</label>
+        <input type="checkbox" id="hair" checked>
+      </div>
+      <div class="item">
+        <label>انتخاب لباس (بیش از ۲ بار عوض کردن)</label>
+        <input type="checkbox" id="clothes" checked>
+      </div>
+      <div class="item">
+        <label>عکس گرفتن برای استوری</label>
+        <input type="checkbox" id="photo">
+      </div>
+      <div class="item">
+        <label>گم کردن کلید / گوشی / کارت</label>
+        <input type="checkbox" id="lost" checked>
+      </div>
+      <div class="item">
+        <label>یه دور دیگه آینه چک کردن</label>
+        <input type="checkbox" id="mirror" checked>
+      </div>
+      <div class="item">
+        <label>پیام دادن به دوست که «دارم میام»</label>
+        <input type="checkbox" id="msg">
+      </div>
+
+      <button class="btn" onclick="calculate()">محاسبه زمان</button>
+    </div>
+
+    <div class="card result" id="result">
+      <div style="font-size: 2.5rem;">⏳</div>
+      <div class="time" id="time">۰ دقیقه</div>
+      <div class="comment" id="comment"></div>
+      <div class="extra" id="extra"></div>
+      <button class="btn" style="background: linear-gradient(90deg,#7b1fa2,#512da8); margin-top:20px;" onclick="reset()">دوباره حساب کن</button>
+    </div>
+  </div>
+
+  <script>
+    const times = {
+      shower: 25,
+      makeup: 40,
+      hair: 30,
+      clothes: 35,
+      photo: 20,
+      lost: 18,
+      mirror: 12,
+      msg: 8
+    };
+
+    const comments = [
+      "این زمان کاملاً واقع‌بینانه‌ست. کمتر از این غیرممکنه.",
+      "اگه زودتر آماده شدی، بدون که یه چیزی جا انداختی.",
+      "بهتره از الان شروع کنی، وگرنه دیر می‌رسی.",
+      "این عدد با احتساب «یه کم دیگه صبر کن» حساب شده.",
+      "زمان اعلام‌شده بدون در نظر گرفتن ترافیک احساسی است."
+    ];
+
+    const extras = [
+      "نکته: ۱۵ دقیقه هم برای «الان تموم می‌شم» اضافه شده.",
+      "هشدار: احتمال تأخیر اضافی به دلیل پیدا نکردن جوراب هماهنگ وجود داره.",
+      "پیشنهاد: به طرف مقابل بگو «دارم میام» ولی حداقل ۴۰ دقیقه زودتر.",
+      "یادآوری: این زمان بدون در نظر گرفتن گریه ناگهانی محاسبه شده."
+    ];
+
+    function calculate() {
+      let total = 10; // base time
+      for (let key in times) {
+        if (document.getElementById(key).checked) {
+          total += times[key];
+        }
+      }
+
+      // Add some randomness
+      total += Math.floor(Math.random() * 15);
+
+      const hours = Math.floor(total / 60);
+      const mins = total % 60;
+      let timeStr = '';
+      if (hours > 0) timeStr += hours + ' ساعت و ';
+      timeStr += mins + ' دقیقه';
+
+      document.getElementById('time').textContent = timeStr;
+      document.getElementById('comment').textContent = comments[Math.floor(Math.random() * comments.length)];
+      document.getElementById('extra').textContent = extras[Math.floor(Math.random() * extras.length)];
+
+      document.getElementById('form').style.display = 'none';
+      document.getElementById('result').style.display = 'block';
+    }
+
+    function reset() {
+      document.getElementById('form').style.display = 'block';
+      document.getElementById('result').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
